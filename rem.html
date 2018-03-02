@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <title>rem</title>
+  <style>
+    h3{
+      font-size: 0.3rem;
+    }
+    p{
+      font-size: 0.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h3>rem字体大小适配</h3>
+    <p>把像素变成适配，你发现了吗</p>
+    <p>你发现了吗</p>
+  </div>
+  <script>
+    function setRem() {
+      const dpr = window.devicePixelRatio; //移动端屏幕dpr
+      const docEl = window.document.documentElement;
+      const visualView = Math.min(docEl.getBoundingClientRect().width, 640 * dpr);
+      const newBase = visualView * 100 / 640;
+      document.documentElement.style.fontSize = newBase + "px"; //默认设计稿宽度640px
+    };
+    window.addEventListener('resize', setRem, false);
+    setRem();
+  </script>
+</body>
+
+</html>
